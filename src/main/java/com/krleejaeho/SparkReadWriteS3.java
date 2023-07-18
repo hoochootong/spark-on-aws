@@ -40,7 +40,7 @@ public final class SparkReadWriteS3 {
         df.write()
                 .mode(SaveMode.ErrorIfExists)
                 .format("parquet")
-                .partitionBy(args[2])
+                .partitionBy("date")
                 .option("path", args[1])
                 .saveAsTable("sample");
     }
