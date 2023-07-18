@@ -21,7 +21,7 @@ public final class SparkReadWriteS3 {
 
         SparkSession sparkSession = SparkSession.builder()
                 .appName("SparkReadWriteS3")
-                .master("cluster")
+                .master("yarn")
                 .getOrCreate();
 
         System.out.println("file location: " + args[0]);
