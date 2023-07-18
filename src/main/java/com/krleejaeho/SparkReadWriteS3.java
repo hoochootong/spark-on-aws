@@ -24,11 +24,12 @@ public final class SparkReadWriteS3 {
                 .master("cluster")
                 .getOrCreate();
 
+        System.out.println("file location: " + args[0]);
         Dataset<Row> df = sparkSession.read()
                 .format("csv")
-                .option("delimiter", args[0])
+                .option("delimiter", ",")
                 .option("header", "true")
-                .load("s3");
+                .load(args[0]);
 
         df.show();
 
